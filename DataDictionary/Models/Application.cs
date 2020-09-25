@@ -19,6 +19,6 @@ namespace DataDictionary.Models
         public string Owner { get; set; }
         public string FileName { get; set; }
 
-        public ICollection<KeywordDefinition> KeywordDefinitions { get; set; }
+        public virtual ICollection<KeywordDefinition> KeywordDefinitions { get; set; }
     }
 }

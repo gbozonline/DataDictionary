@@ -41,5 +41,7 @@ namespace DataDictionary.Models
         public string Field23 { get; set; }
         public string Field24 { get; set; }
         public string Field25 { get; set; }
+
+        public virtual KeywordDefinition KeywordDefinition { get; set; }
     }
 }

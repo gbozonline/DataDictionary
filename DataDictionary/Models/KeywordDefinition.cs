@@ -13,7 +13,7 @@ namespace DataDictionary.Models
         [Required(ErrorMessage = "Please enter a Keyword Description (Key)")]
         public string KeywordDefinitionId { get; set; }
 
-        [Display(Name = "Application")]
+        [Display(Name = "Applications")]
         [Required(ErrorMessage = "Please select an application")]
         public string ApplicationId { get; set; }
 
@@ -44,8 +44,8 @@ namespace DataDictionary.Models
         public string Field24Description { get; set; }
         public string Field25Description { get; set; }
 
-        public ICollection<Keyword> Keywords { get; set; }
-        public Application Application { get; set; }
+        public virtual ICollection<Keyword> Keywords { get; set; }
+        public virtual Application Application { get; set; }
 
 
     }
