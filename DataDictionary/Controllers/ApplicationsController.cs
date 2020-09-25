@@ -26,7 +26,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace DataDictionary.Controllers
             }
 
             var application = await _context.Applications
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ApplicationId == id);
             if (application == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Type,Owner,FileName")] Application application)
+        public async Task<IActionResult> Create([Bind("ApplicationId,Description,Type,Owner,FileName")] Application application)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -86,9 +86,9 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Type,Owner,FileName")] Application application)
+        public async Task<IActionResult> Edit(string id, [Bind("ApplicationId,Description,Type,Owner,FileName")] Application application)
         {
-            if (id != application.Id)
+            if (id != application.ApplicationId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace DataDictionary.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ApplicationExists(application.Id))
+                    if (!ApplicationExists(application.ApplicationId))
                     {
                         return NotFound();
                     }
@@ -117,7 +117,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -125,7 +125,7 @@ namespace DataDictionary.Controllers
             }
 
             var application = await _context.Applications
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ApplicationId == id);
             if (application == null)
             {
                 return NotFound();
@@ -137,7 +137,7 @@ namespace DataDictionary.Controllers
         // POST: Applications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var application = await _context.Applications.FindAsync(id);
             _context.Applications.Remove(application);
@@ -145,9 +145,9 @@ namespace DataDictionary.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ApplicationExists(int id)
+        private bool ApplicationExists(string id)
         {
-            return _context.Applications.Any(e => e.Id == id);
+            return _context.Applications.Any(e => e.ApplicationId == id);
         }
     }
 }

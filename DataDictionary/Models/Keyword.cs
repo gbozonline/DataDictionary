@@ -9,7 +9,7 @@ namespace DataDictionary.Models
 {
     public class Keyword
     {
-        public int Id { get; set; }
+        public int KeywordId { get; set; }
 
         [Display(Name = "Keyword Description")]
         [Required(ErrorMessage = "Please select a Keyword Description")]

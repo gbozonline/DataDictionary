@@ -15,5 +15,7 @@ namespace DataDictionary.Data
         }
 
         public DbSet<Application> Applications { get; set; }
+        public DbSet<KeywordDefinition> KeywordDefinitions { get; set; }
+        public DbSet<Keyword> Keywords { get; set; }
     }
 }
