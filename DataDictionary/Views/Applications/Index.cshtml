@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<DataDictionary.Models.Application>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -19,10 +15,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
+                @Html.DisplayNameFor(model => model.ApplicationId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Owner)
@@ -37,10 +30,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.ApplicationId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Owner)

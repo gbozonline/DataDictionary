@@ -54,7 +54,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ApplicationId,Description,Type,Owner,FileName")] Application application)
+        public async Task<IActionResult> Create([Bind("ApplicationId,Description,Type,Owner,FileName,SecAppExpert,ISContact")] Application application)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ApplicationId,Description,Type,Owner,FileName")] Application application)
+        public async Task<IActionResult> Edit(string id, [Bind("ApplicationId,Description,Type,Owner,FileName,SecAppExpert,ISContact")] Application application)
         {
             if (id != application.ApplicationId)
             {

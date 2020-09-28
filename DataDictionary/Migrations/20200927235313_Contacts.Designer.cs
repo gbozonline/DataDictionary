@@ -3,14 +3,16 @@ using DataDictionary.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataDictionary.Migrations
 {
     [DbContext(typeof(DataDictionaryContext))]
-    partial class DataDictionaryContextModelSnapshot : ModelSnapshot
+    [Migration("20200927235313_Contacts")]
+    partial class Contacts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

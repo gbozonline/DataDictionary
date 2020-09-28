@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<DataDictionary.Models.KeywordDefinition>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -19,6 +15,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.KeywordDefinitionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Field1Description)
             </th>
             <th>
@@ -27,81 +29,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Field3Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field4Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field5Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field6Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field7Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field8Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field9Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field10Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field11Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field12Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field13Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field14Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field15Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field16Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field17Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field18Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field19Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field20Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field21Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field22Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field23Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field24Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Field25Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Application)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeywordDefinitionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Application.ApplicationId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Field1Description)
             </td>
@@ -110,75 +49,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Field3Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field4Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field5Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field6Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field7Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field8Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field9Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field10Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field11Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field12Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field13Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field14Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field15Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field16Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field17Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field18Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field19Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field20Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field21Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field22Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field23Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field24Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Field25Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Application.ApplicationId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.KeywordDefinitionId">Edit</a> |

@@ -17,6 +17,13 @@ namespace DataDictionary.Models
         public string Description { get; set; }
         public string Type { get; set; }
         public string Owner { get; set; }
+
+        [Display(Name = "Secondary Contact")]
+        public string SecAppExpert { get; set; }
+
+        [Display(Name = "IS Contact")]
+        public string ISContact { get; set; }
+
         public string FileName { get; set; }
 
         public virtual ICollection<KeywordDefinition> KeywordDefinitions { get; set; }

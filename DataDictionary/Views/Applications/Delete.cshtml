@@ -1,9 +1,5 @@
 ﻿@model DataDictionary.Models.Application
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -18,6 +14,12 @@
     <h4>Application</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationId)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
@@ -36,6 +38,18 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Owner)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SecAppExpert)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SecAppExpert)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ISContact)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ISContact)
+        </dd> 
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FileName)
         </dt>
