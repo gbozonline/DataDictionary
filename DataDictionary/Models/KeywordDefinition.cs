@@ -9,9 +9,11 @@ namespace DataDictionary.Models
 {
     public class KeywordDefinition
     {
+        public int KeywordDefinitionId { get; set; }
+
         [Display(Name = "Keyword Description")]
         [Required(ErrorMessage = "Please enter a Keyword Description (Key)")]
-        public string KeywordDefinitionId { get; set; }
+        public string KeywordName { get; set; }
 
         [Display(Name = "Applications")]
         [Required(ErrorMessage = "Please select an application")]

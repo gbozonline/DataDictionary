@@ -22,8 +22,7 @@ namespace DataDictionary.Controllers
         // GET: Keywords
         public async Task<IActionResult> Index()
         {
-            var dataDictionaryContext = _context.Keywords.Include(k => k.KeywordDefinition);
-            return View(await dataDictionaryContext.ToListAsync());
+            return View(await _context.Keywords.ToListAsync());
         }
 
         // GET: Keywords/Details/5
@@ -35,7 +34,6 @@ namespace DataDictionary.Controllers
             }
 
             var keyword = await _context.Keywords
-                .Include(k => k.KeywordDefinition)
                 .FirstOrDefaultAsync(m => m.KeywordId == id);
             if (keyword == null)
             {
@@ -48,7 +46,7 @@ namespace DataDictionary.Controllers
         // GET: Keywords/Create
         public IActionResult Create()
         {
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionId");
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
             return View();
         }
 
@@ -65,7 +63,7 @@ namespace DataDictionary.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionId", keyword.KeywordDefinitionId);
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
             return View(keyword);
         }
 
@@ -82,7 +80,7 @@ namespace DataDictionary.Controllers
             {
                 return NotFound();
             }
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionId", keyword.KeywordDefinitionId);
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
             return View(keyword);
         }
 
@@ -118,7 +116,7 @@ namespace DataDictionary.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionId", keyword.KeywordDefinitionId);
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
             return View(keyword);
         }
 
@@ -131,7 +129,6 @@ namespace DataDictionary.Controllers
             }
 
             var keyword = await _context.Keywords
-                .Include(k => k.KeywordDefinition)
                 .FirstOrDefaultAsync(m => m.KeywordId == id);
             if (keyword == null)
             {

@@ -26,7 +26,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -54,7 +54,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ApplicationId,Description,Type,Owner,FileName,SecAppExpert,ISContact")] Application application)
+        public async Task<IActionResult> Create([Bind("ApplicationId,ApplicationName,Description,Owner,SecAppExpert,ISContact,FileName")] Application application)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -86,7 +86,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ApplicationId,Description,Type,Owner,FileName,SecAppExpert,ISContact")] Application application)
+        public async Task<IActionResult> Edit(int id, [Bind("ApplicationId,ApplicationName,Description,Owner,SecAppExpert,ISContact,FileName")] Application application)
         {
             if (id != application.ApplicationId)
             {
@@ -117,7 +117,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -137,7 +137,7 @@ namespace DataDictionary.Controllers
         // POST: Applications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var application = await _context.Applications.FindAsync(id);
             _context.Applications.Remove(application);
@@ -145,7 +145,7 @@ namespace DataDictionary.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ApplicationExists(string id)
+        private bool ApplicationExists(int id)
         {
             return _context.Applications.Any(e => e.ApplicationId == id);
         }

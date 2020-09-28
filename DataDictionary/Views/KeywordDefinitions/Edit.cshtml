@@ -1,13 +1,10 @@
 ﻿@model DataDictionary.Models.KeywordDefinition
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Edit";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+<h1>Edit</h1>
 
 <h4>KeywordDefinition</h4>
 <hr />
@@ -17,8 +14,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="KeywordDefinitionId" />
             <div class="form-group">
+                <label asp-for="KeywordName" class="control-label"></label>
+                <input asp-for="KeywordName" class="form-control" />
+                <span asp-validation-for="KeywordName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ApplicationId" class="control-label"></label>
-                <select asp-for="ApplicationId" class="form-control" asp-items="ViewBag.ApplicationId"></select>
+                <select asp-for="ApplicationId" class="form-control" asp-items="ViewBag.ApplicationId" multiple="multiple"></select>
                 <span asp-validation-for="ApplicationId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -160,5 +162,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>

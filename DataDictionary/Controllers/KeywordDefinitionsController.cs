@@ -22,12 +22,11 @@ namespace DataDictionary.Controllers
         // GET: KeywordDefinitions
         public async Task<IActionResult> Index()
         {
-            var dataDictionaryContext = _context.KeywordDefinitions.Include(k => k.Application);
-            return View(await dataDictionaryContext.ToListAsync());
+            return View(await _context.KeywordDefinitions.ToListAsync());
         }
 
         // GET: KeywordDefinitions/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -35,7 +34,6 @@ namespace DataDictionary.Controllers
             }
 
             var keywordDefinition = await _context.KeywordDefinitions
-                .Include(k => k.Application)
                 .FirstOrDefaultAsync(m => m.KeywordDefinitionId == id);
             if (keywordDefinition == null)
             {
@@ -48,7 +46,7 @@ namespace DataDictionary.Controllers
         // GET: KeywordDefinitions/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationId");
+            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationName");
             return View();
         }
 
@@ -57,7 +55,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("KeywordDefinitionId,ApplicationId,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
+        public async Task<IActionResult> Create([Bind("KeywordDefinitionId,KeywordName,ApplicationId,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
         {
             if (ModelState.IsValid)
             {
@@ -65,12 +63,12 @@ namespace DataDictionary.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationId", keywordDefinition.ApplicationId);
+            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationName", keywordDefinition.ApplicationId);
             return View(keywordDefinition);
         }
 
         // GET: KeywordDefinitions/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -82,7 +80,7 @@ namespace DataDictionary.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationId", keywordDefinition.ApplicationId);
+            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationName", keywordDefinition.ApplicationId);
             return View(keywordDefinition);
         }
 
@@ -91,7 +89,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("KeywordDefinitionId,ApplicationId,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
+        public async Task<IActionResult> Edit(int id, [Bind("KeywordDefinitionId,KeywordName,ApplicationId,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
         {
             if (id != keywordDefinition.KeywordDefinitionId)
             {
@@ -118,12 +116,12 @@ namespace DataDictionary.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationId", keywordDefinition.ApplicationId);
+            ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationName", keywordDefinition.ApplicationId);
             return View(keywordDefinition);
         }
 
         // GET: KeywordDefinitions/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -131,7 +129,6 @@ namespace DataDictionary.Controllers
             }
 
             var keywordDefinition = await _context.KeywordDefinitions
-                .Include(k => k.Application)
                 .FirstOrDefaultAsync(m => m.KeywordDefinitionId == id);
             if (keywordDefinition == null)
             {
@@ -144,7 +141,7 @@ namespace DataDictionary.Controllers
         // POST: KeywordDefinitions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var keywordDefinition = await _context.KeywordDefinitions.FindAsync(id);
             _context.KeywordDefinitions.Remove(keywordDefinition);
@@ -152,7 +149,7 @@ namespace DataDictionary.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool KeywordDefinitionExists(string id)
+        private bool KeywordDefinitionExists(int id)
         {
             return _context.KeywordDefinitions.Any(e => e.KeywordDefinitionId == id);
         }

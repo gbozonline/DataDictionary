@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200925083605_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200925083605_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200927235313_Contacts.cs" />
+    <Compile Remove="Migrations\20200927235313_Contacts.Designer.cs" />
+    <Compile Remove="Migrations\20200928025055_Initialise.cs" />
+    <Compile Remove="Migrations\20200928025055_Initialise.Designer.cs" />
+    <Compile Remove="Migrations\20200928030405_RemoveApplicationType.cs" />
+    <Compile Remove="Migrations\20200928030405_RemoveApplicationType.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

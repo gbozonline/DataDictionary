@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<DataDictionary.Models.Application>
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Index";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h1>Index</h1>
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -15,10 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationId)
+                @Html.DisplayNameFor(model => model.ApplicationName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISContact)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FileName)
@@ -30,10 +31,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ApplicationId)
+                @Html.DisplayFor(modelItem => item.ApplicationName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISContact)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FileName)
@@ -47,5 +51,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>

@@ -1,18 +1,27 @@
 ﻿@model DataDictionary.Models.KeywordDefinition
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Details";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+<h1>Details</h1>
 
 <div>
     <h4>KeywordDefinition</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KeywordName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KeywordName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationId)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Field1Description)
         </dt>
@@ -163,17 +172,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Field25Description)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Application)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Application.ApplicationId)
-        </dd>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.KeywordDefinitionId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-</body>
-</html>

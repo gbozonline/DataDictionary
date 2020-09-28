@@ -10,10 +10,13 @@ namespace DataDictionary.Migrations
                 name: "Applications",
                 columns: table => new
                 {
-                    ApplicationId = table.Column<string>(nullable: false),
+                    ApplicationId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicationName = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
-                    Type = table.Column<string>(nullable: true),
                     Owner = table.Column<string>(nullable: true),
+                    SecAppExpert = table.Column<string>(nullable: true),
+                    ISContact = table.Column<string>(nullable: true),
                     FileName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -25,7 +28,9 @@ namespace DataDictionary.Migrations
                 name: "KeywordDefinitions",
                 columns: table => new
                 {
-                    KeywordDefinitionId = table.Column<string>(nullable: false),
+                    KeywordDefinitionId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KeywordName = table.Column<string>(nullable: false),
                     ApplicationId = table.Column<string>(nullable: false),
                     Field1Description = table.Column<string>(nullable: false),
                     Field2Description = table.Column<string>(nullable: true),
@@ -51,17 +56,18 @@ namespace DataDictionary.Migrations
                     Field22Description = table.Column<string>(nullable: true),
                     Field23Description = table.Column<string>(nullable: true),
                     Field24Description = table.Column<string>(nullable: true),
-                    Field25Description = table.Column<string>(nullable: true)
+                    Field25Description = table.Column<string>(nullable: true),
+                    ApplicationId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_KeywordDefinitions", x => x.KeywordDefinitionId);
                     table.ForeignKey(
-                        name: "FK_KeywordDefinitions_Applications_ApplicationId",
-                        column: x => x.ApplicationId,
+                        name: "FK_KeywordDefinitions_Applications_ApplicationId1",
+                        column: x => x.ApplicationId1,
                         principalTable: "Applications",
                         principalColumn: "ApplicationId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,28 +101,29 @@ namespace DataDictionary.Migrations
                     Field22 = table.Column<string>(nullable: true),
                     Field23 = table.Column<string>(nullable: true),
                     Field24 = table.Column<string>(nullable: true),
-                    Field25 = table.Column<string>(nullable: true)
+                    Field25 = table.Column<string>(nullable: true),
+                    KeywordDefinitionId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Keywords", x => x.KeywordId);
                     table.ForeignKey(
-                        name: "FK_Keywords_KeywordDefinitions_KeywordDefinitionId",
-                        column: x => x.KeywordDefinitionId,
+                        name: "FK_Keywords_KeywordDefinitions_KeywordDefinitionId1",
+                        column: x => x.KeywordDefinitionId1,
                         principalTable: "KeywordDefinitions",
                         principalColumn: "KeywordDefinitionId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_KeywordDefinitions_ApplicationId",
+                name: "IX_KeywordDefinitions_ApplicationId1",
                 table: "KeywordDefinitions",
-                column: "ApplicationId");
+                column: "ApplicationId1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Keywords_KeywordDefinitionId",
+                name: "IX_Keywords_KeywordDefinitionId1",
                 table: "Keywords",
-                column: "KeywordDefinitionId");
+                column: "KeywordDefinitionId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -9,13 +9,15 @@ namespace DataDictionary.Models
 {
     public class Application
     {
+        public int ApplicationId { get; set; }
+
         [Display(Name = "Application Name")]
         [Required(ErrorMessage = "Please enter an Application Name")]
-        public string ApplicationId { get; set; }
+        public string ApplicationName { get; set; }
 
         [Required(ErrorMessage = "Please enter a Description")]
         public string Description { get; set; }
-        public string Type { get; set; }
+
         public string Owner { get; set; }
 
         [Display(Name = "Secondary Contact")]
