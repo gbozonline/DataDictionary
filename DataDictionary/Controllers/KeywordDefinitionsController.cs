@@ -7,22 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataDictionary.Data;
 using DataDictionary.Models;
+using DataDictionary.Repositories;
 
 namespace DataDictionary.Controllers
 {
     public class KeywordDefinitionsController : Controller
     {
         private readonly DataDictionaryContext _context;
+        private IDataDictionaryRepository _dataDictionaryRepository;
 
-        public KeywordDefinitionsController(DataDictionaryContext context)
+        public KeywordDefinitionsController(DataDictionaryContext context, IDataDictionaryRepository dataDictionaryRepository)
         {
             _context = context;
+            _dataDictionaryRepository = dataDictionaryRepository;
         }
 
         // GET: KeywordDefinitions
         public async Task<IActionResult> Index()
         {
-            return View(await _context.KeywordDefinitions.ToListAsync());
+            var dataDictionaryContext = _context.KeywordDefinitions.Include(k => k.Application);
+            return View(await dataDictionaryContext.ToListAsync());
         }
 
         // GET: KeywordDefinitions/Details/5
@@ -34,6 +38,7 @@ namespace DataDictionary.Controllers
             }
 
             var keywordDefinition = await _context.KeywordDefinitions
+                .Include(k => k.Application)
                 .FirstOrDefaultAsync(m => m.KeywordDefinitionId == id);
             if (keywordDefinition == null)
             {
@@ -55,12 +60,20 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("KeywordDefinitionId,KeywordName,ApplicationId,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
+        public async Task<IActionResult> Create([Bind("KeywordDefinitionId,KeywordDefinitionName,ApplicationId,ApplicationName,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(keywordDefinition);
                 await _context.SaveChangesAsync();
+
+                var thisApp = _dataDictionaryRepository.GetApplicationById(keywordDefinition.ApplicationId);
+                if (thisApp != null) 
+                    {
+                        keywordDefinition.ApplicationName = thisApp.ApplicationName;
+                        _context.SaveChanges();
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ApplicationId"] = new SelectList(_context.Applications, "ApplicationId", "ApplicationName", keywordDefinition.ApplicationId);
@@ -89,7 +102,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("KeywordDefinitionId,KeywordName,ApplicationId,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
+        public async Task<IActionResult> Edit(int id, [Bind("KeywordDefinitionId,KeywordDefinitionName,ApplicationId,ApplicationName,Field1Description,Field2Description,Field3Description,Field4Description,Field5Description,Field6Description,Field7Description,Field8Description,Field9Description,Field10Description,Field11Description,Field12Description,Field13Description,Field14Description,Field15Description,Field16Description,Field17Description,Field18Description,Field19Description,Field20Description,Field21Description,Field22Description,Field23Description,Field24Description,Field25Description")] KeywordDefinition keywordDefinition)
         {
             if (id != keywordDefinition.KeywordDefinitionId)
             {
@@ -102,6 +115,13 @@ namespace DataDictionary.Controllers
                 {
                     _context.Update(keywordDefinition);
                     await _context.SaveChangesAsync();
+
+                    var thisApp = _dataDictionaryRepository.GetApplicationById(keywordDefinition.ApplicationId);
+                    if (thisApp != null)
+                    {
+                        keywordDefinition.ApplicationName = thisApp.ApplicationName;
+                        _context.SaveChanges();
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -129,6 +149,7 @@ namespace DataDictionary.Controllers
             }
 
             var keywordDefinition = await _context.KeywordDefinitions
+                .Include(k => k.Application)
                 .FirstOrDefaultAsync(m => m.KeywordDefinitionId == id);
             if (keywordDefinition == null)
             {

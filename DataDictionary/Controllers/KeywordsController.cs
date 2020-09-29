@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataDictionary.Data;
 using DataDictionary.Models;
+using DataDictionary.Repositories;
 
 namespace DataDictionary.Controllers
 {
@@ -22,7 +23,8 @@ namespace DataDictionary.Controllers
         // GET: Keywords
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Keywords.ToListAsync());
+            var dataDictionaryContext = _context.Keywords.Include(k => k.KeywordDefinition);
+            return View(await dataDictionaryContext.ToListAsync());
         }
 
         // GET: Keywords/Details/5
@@ -34,6 +36,7 @@ namespace DataDictionary.Controllers
             }
 
             var keyword = await _context.Keywords
+                .Include(k => k.KeywordDefinition)
                 .FirstOrDefaultAsync(m => m.KeywordId == id);
             if (keyword == null)
             {
@@ -46,7 +49,7 @@ namespace DataDictionary.Controllers
         // GET: Keywords/Create
         public IActionResult Create()
         {
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName");
             return View();
         }
 
@@ -55,7 +58,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("KeywordId,KeywordDefinitionId,Field1,Field2,Field3,Field4,Field5,Field6,Field7,Field8,Field9,Field10,Field11,Field12,Field13,Field14,Field15,Field16,Field17,Field18,Field19,Field20,Field21,Field22,Field23,Field24,Field25")] Keyword keyword)
+        public async Task<IActionResult> Create([Bind("KeywordId,KeywordDefinitionId,KeywordDefinitionName,Field1,Field2,Field3,Field4,Field5,Field6,Field7,Field8,Field9,Field10,Field11,Field12,Field13,Field14,Field15,Field16,Field17,Field18,Field19,Field20,Field21,Field22,Field23,Field24,Field25")] Keyword keyword)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +66,7 @@ namespace DataDictionary.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
             return View(keyword);
         }
 
@@ -80,7 +83,7 @@ namespace DataDictionary.Controllers
             {
                 return NotFound();
             }
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
             return View(keyword);
         }
 
@@ -89,7 +92,7 @@ namespace DataDictionary.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("KeywordId,KeywordDefinitionId,Field1,Field2,Field3,Field4,Field5,Field6,Field7,Field8,Field9,Field10,Field11,Field12,Field13,Field14,Field15,Field16,Field17,Field18,Field19,Field20,Field21,Field22,Field23,Field24,Field25")] Keyword keyword)
+        public async Task<IActionResult> Edit(int id, [Bind("KeywordId,KeywordDefinitionId,KeywordDefinitionName,Field1,Field2,Field3,Field4,Field5,Field6,Field7,Field8,Field9,Field10,Field11,Field12,Field13,Field14,Field15,Field16,Field17,Field18,Field19,Field20,Field21,Field22,Field23,Field24,Field25")] Keyword keyword)
         {
             if (id != keyword.KeywordId)
             {
@@ -116,7 +119,7 @@ namespace DataDictionary.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordName");
+            ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
             return View(keyword);
         }
 
@@ -129,6 +132,7 @@ namespace DataDictionary.Controllers
             }
 
             var keyword = await _context.Keywords
+                .Include(k => k.KeywordDefinition)
                 .FirstOrDefaultAsync(m => m.KeywordId == id);
             if (keyword == null)
             {

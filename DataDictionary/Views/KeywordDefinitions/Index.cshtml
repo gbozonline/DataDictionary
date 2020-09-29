@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.KeywordName)
+                @Html.DisplayNameFor(model => model.KeywordDefinitionName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationId)
+                @Html.DisplayNameFor(model => model.ApplicationName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Field1Description)
@@ -28,10 +28,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.KeywordName)
+                @Html.DisplayFor(modelItem => item.KeywordDefinitionName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ApplicationId)
+                @Html.DisplayFor(modelItem => item.ApplicationName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Field1Description)

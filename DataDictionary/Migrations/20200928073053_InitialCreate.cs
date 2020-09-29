@@ -30,8 +30,9 @@ namespace DataDictionary.Migrations
                 {
                     KeywordDefinitionId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    KeywordName = table.Column<string>(nullable: false),
-                    ApplicationId = table.Column<string>(nullable: false),
+                    KeywordDefinitionName = table.Column<string>(nullable: false),
+                    ApplicationId = table.Column<int>(nullable: false),
+                    ApplicationName = table.Column<string>(nullable: true),
                     Field1Description = table.Column<string>(nullable: false),
                     Field2Description = table.Column<string>(nullable: true),
                     Field3Description = table.Column<string>(nullable: true),
@@ -56,18 +57,17 @@ namespace DataDictionary.Migrations
                     Field22Description = table.Column<string>(nullable: true),
                     Field23Description = table.Column<string>(nullable: true),
                     Field24Description = table.Column<string>(nullable: true),
-                    Field25Description = table.Column<string>(nullable: true),
-                    ApplicationId1 = table.Column<int>(nullable: true)
+                    Field25Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_KeywordDefinitions", x => x.KeywordDefinitionId);
                     table.ForeignKey(
-                        name: "FK_KeywordDefinitions_Applications_ApplicationId1",
-                        column: x => x.ApplicationId1,
+                        name: "FK_KeywordDefinitions_Applications_ApplicationId",
+                        column: x => x.ApplicationId,
                         principalTable: "Applications",
                         principalColumn: "ApplicationId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,7 +76,8 @@ namespace DataDictionary.Migrations
                 {
                     KeywordId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    KeywordDefinitionId = table.Column<string>(nullable: false),
+                    KeywordDefinitionId = table.Column<int>(nullable: false),
+                    KeywordDefinitionName = table.Column<string>(nullable: true),
                     Field1 = table.Column<string>(nullable: false),
                     Field2 = table.Column<string>(nullable: true),
                     Field3 = table.Column<string>(nullable: true),
@@ -101,29 +102,28 @@ namespace DataDictionary.Migrations
                     Field22 = table.Column<string>(nullable: true),
                     Field23 = table.Column<string>(nullable: true),
                     Field24 = table.Column<string>(nullable: true),
-                    Field25 = table.Column<string>(nullable: true),
-                    KeywordDefinitionId1 = table.Column<int>(nullable: true)
+                    Field25 = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Keywords", x => x.KeywordId);
                     table.ForeignKey(
-                        name: "FK_Keywords_KeywordDefinitions_KeywordDefinitionId1",
-                        column: x => x.KeywordDefinitionId1,
+                        name: "FK_Keywords_KeywordDefinitions_KeywordDefinitionId",
+                        column: x => x.KeywordDefinitionId,
                         principalTable: "KeywordDefinitions",
                         principalColumn: "KeywordDefinitionId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_KeywordDefinitions_ApplicationId1",
+                name: "IX_KeywordDefinitions_ApplicationId",
                 table: "KeywordDefinitions",
-                column: "ApplicationId1");
+                column: "ApplicationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Keywords_KeywordDefinitionId1",
+                name: "IX_Keywords_KeywordDefinitionId",
                 table: "Keywords",
-                column: "KeywordDefinitionId1");
+                column: "KeywordDefinitionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

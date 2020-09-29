@@ -13,11 +13,14 @@ namespace DataDictionary.Models
 
         [Display(Name = "Keyword Description")]
         [Required(ErrorMessage = "Please enter a Keyword Description (Key)")]
-        public string KeywordName { get; set; }
+        public string KeywordDefinitionName { get; set; }
 
-        [Display(Name = "Applications")]
-        [Required(ErrorMessage = "Please select an application")]
-        public string ApplicationId { get; set; }
+        [Display(Name = "Application")]
+        [Required(ErrorMessage = "Please select the Primary application")]
+        public int ApplicationId { get; set; }
+
+        [Display(Name = "Primary Application")]
+        public string ApplicationName { get; set; }
 
         [Required(ErrorMessage = "Please enter a Field 1 Description")]
         public string Field1Description { get; set; }

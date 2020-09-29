@@ -11,10 +11,10 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.KeywordDefinitionId)
+            @Html.DisplayNameFor(model => model.KeywordDefinitionName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.KeywordDefinitionId)
+            @Html.DisplayFor(model => model.KeywordDefinitionName)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Field1)
@@ -165,6 +165,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Field25)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KeywordDefinition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KeywordDefinition.Field1Description)
         </dd>
     </dl>
 </div>

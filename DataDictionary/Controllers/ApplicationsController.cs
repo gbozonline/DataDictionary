@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataDictionary.Data;
 using DataDictionary.Models;
+using DataDictionary.Repositories;
 
 namespace DataDictionary.Controllers
 {

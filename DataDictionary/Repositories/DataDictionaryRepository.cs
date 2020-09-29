@@ -17,5 +17,11 @@ namespace DataDictionary.Repositories
         {
             _contextData = contextData;
         }
+
+        public Application GetApplicationById(int id)
+        {
+            var application = (from c in _contextData.Applications where c.ApplicationId == id select c).Single();
+            return application;
+        }
     }
 }
