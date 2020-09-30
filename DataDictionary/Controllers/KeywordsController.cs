@@ -64,7 +64,9 @@ namespace DataDictionary.Controllers
             {
                 _context.Add(keyword);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index), new { id = keyword.KeywordId });
+                return RedirectToAction("Edit", "Keywords", new { id = keyword.KeywordId });
             }
             ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
             return View(keyword);

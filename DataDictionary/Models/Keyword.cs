@@ -14,9 +14,10 @@ namespace DataDictionary.Models
         [Display(Name = "Keyword Description")]
         [Required(ErrorMessage = "Please select a Keyword Description")]
         public int KeywordDefinitionId { get; set; }
+
+        [Display(Name = "Keyword Description")]
         public string KeywordDefinitionName { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Field 1 Value")]
         public string Field1 { get; set; }
         public string Field2 { get; set; }
         public string Field3 { get; set; }

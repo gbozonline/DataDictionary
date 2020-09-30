@@ -23,7 +23,7 @@ namespace DataDictionary.Controllers
         // GET: Applications
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Applications.ToListAsync());
+            return View(await _context.Applications.OrderBy(a => a.ApplicationName).ToListAsync());
         }
 
         // GET: Applications/Details/5

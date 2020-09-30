@@ -26,7 +26,7 @@ namespace DataDictionary.Controllers
         public async Task<IActionResult> Index()
         {
             var dataDictionaryContext = _context.KeywordDefinitions.Include(k => k.Application);
-            return View(await dataDictionaryContext.ToListAsync());
+            return View(await dataDictionaryContext.OrderBy(a=>a.ApplicationName).ToListAsync());
         }
 
         // GET: KeywordDefinitions/Details/5
