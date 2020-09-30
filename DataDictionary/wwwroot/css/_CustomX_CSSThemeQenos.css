@@ -1,0 +1,220 @@
+﻿.panelFormContentHeading {
+    font: 1.0em Arial,Helvetica,sans-serif;
+}
+
+.iebottomspacer {
+    height: 180px;
+}
+
+.input-elm {
+    width: 130px;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* SHIFT LOSS BUTTON BAR EDIT Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTableButtonBarEdit td.delete {
+    text-align: left;
+}
+
+.qenosFormTableButtonBarEdit td.okcancel {
+    text-align: right;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+/* SHIFT FIELDS*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.xspInputFieldNumber {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.25em;
+    width: 30%;
+}
+
+.xspInputFieldNumberSmall {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.25em;
+    width: 8%;
+}
+
+.xspInputFieldEditBoxSmall {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.25em;
+    width: 30%;
+}
+
+.gridSearchDialog {
+    width: 600px;
+}
+
+.gridReportDialog {
+    width: 450px;
+}
+
+.lossTotal {
+    font-weight: bold;
+    border-top: 1px solid black;
+}
+
+.dialogShiftLoss {
+    width: 1000px;
+}
+
+.customErrorField {
+    color: red;
+    border: 0px solid #FFFFFF;
+    cursor: none;
+    height: 40px;
+    width: 255px;
+}
+
+.nounderline {
+    text-decoration: none;
+}
+
+    .nounderline:hover {
+        text-decoration: underline;
+    }
+
+
+/*-------------------------------------------------------------------------------------------------*/
+/* SHIFT SUMMARY Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.panel > .panel-heading {
+    font-weight: bold;
+    font-size: 1.0em;
+}
+
+.panel.latest-period, .panel.shift-selection {
+    margin-bottom: 0px;
+}
+
+.panel-heading.latest-period, .panel-heading.shift-selection {
+    padding: 2px 15px;
+}
+
+.panel-title.latest-period, .panel-title.shift-selection {
+    font-size: 11px;
+}
+
+.panel-body.latest-period, .panel-footer.latest-period, .panel-body.shift-selection {
+    padding: 3px 0px 3px 10px;
+    margin: 0px;
+}
+
+.qenosFormTableLatestPeriod, .qenosFormTableKPISummary {
+    width: 99%;
+    font-size: 8pt;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.qenosFormTableLatestPeriod1, .qenosFormTableLatestPeriod2, .qenosFormTableShiftSelection1 {
+    width: 100%;
+    line-height: 1.75;
+}
+
+    .qenosFormTableLatestPeriod1 tr {
+        border-bottom: 1px solid #DDDDDD;
+    }
+
+    .qenosFormTableShiftSelection1 .dijitInputContainer {
+        font-size: 14px;
+    }
+
+    .qenosFormTableLatestPeriod2 td, .qenosFormTableLatestPeriod1 td, .qenosFormTableShiftSelection1 td {
+        /*padding: 3px;*/
+    }
+
+.LatestPeriodRowHeader {
+    background: url("_QenosX_ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll 50% 50% #5C9CCC;
+}
+
+.LatestPeriodAreaHeading {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.0em;
+    margin: 0px 64px 0px 0px;
+}
+
+.LatestPeriodHeading {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.0em;
+}
+
+.summaryLabel {
+    font-weight: bold;
+}
+
+.summaryTotal {
+    font-weight: bold;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.myDefaultRowClass {
+    background-color: #FFFFFF;
+}
+
+.myAltRowClass {
+    background-color: #F5F5F5;
+}
+
+.closurePercent {
+    background-color: #83D0F5;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.periodDisplay span {
+    background-color: #83D0F5;
+    padding: 10px 100px 10px 10px;
+    font-size: 1.50em;
+}
+
+.history {
+    background-color: #F5F5F5;
+}
+
+.categoryHeader {
+    padding-left: 10px;
+    font-size: 2.0em;
+    color: #63666A;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/*Custom CSS goes here*/
+/*-------------------------------------------------------------------------------------------------*/
+.morris-hover {
+    position: absolute;
+    z-index: 1000
+}
+
+    .morris-hover.morris-default-style {
+        border-radius: 10px;
+        padding: 6px;
+        color: #666;
+        background: rgba(255, 255, 255, 0.8);
+        border: solid 2px rgba(230, 230, 230, 0.8);
+        font-family: sans-serif;
+        font-size: 12px;
+        text-align: center
+    }
+
+        .morris-hover.morris-default-style .morris-hover-row-label {
+            font-weight: bold;
+            margin: 0.25em 0
+        }
+
+        .morris-hover.morris-default-style .morris-hover-point {
+            white-space: nowrap;
+            margin: 0.1em 0
+        }
+
+.control-label {
+    font-weight: bold;
+}

@@ -9,5 +9,7 @@ namespace DataDictionary.Repositories
     public interface IDataDictionaryRepository
     {
         Application GetApplicationById(int id);
+        KeywordDefinition GetDefinitionById(int keywordDefinitionId);
+        List<string> PopulateKeywordDescriptions(KeywordDefinition theDef);
     }
 }

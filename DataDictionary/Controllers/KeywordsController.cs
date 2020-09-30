@@ -14,17 +14,19 @@ namespace DataDictionary.Controllers
     public class KeywordsController : Controller
     {
         private readonly DataDictionaryContext _context;
+        private IDataDictionaryRepository _dataDictionaryRepository;
 
-        public KeywordsController(DataDictionaryContext context)
+        public KeywordsController(DataDictionaryContext context, IDataDictionaryRepository dataDictionaryRepository)
         {
             _context = context;
+            _dataDictionaryRepository = dataDictionaryRepository;
         }
 
         // GET: Keywords
         public async Task<IActionResult> Index()
         {
             var dataDictionaryContext = _context.Keywords.Include(k => k.KeywordDefinition);
-            return View(await dataDictionaryContext.ToListAsync());
+            return View(await dataDictionaryContext.OrderBy(a => a.KeywordDefinitionName).ToListAsync());
         }
 
         // GET: Keywords/Details/5
@@ -41,6 +43,13 @@ namespace DataDictionary.Controllers
             if (keyword == null)
             {
                 return NotFound();
+            }
+
+            KeywordDefinition thisDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
+            if (thisDef != null)
+            {
+                var descriptions = _dataDictionaryRepository.PopulateKeywordDescriptions(thisDef);
+                ViewBag.Descriptions = descriptions;
             }
 
             return View(keyword);
@@ -64,8 +73,15 @@ namespace DataDictionary.Controllers
             {
                 _context.Add(keyword);
                 await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
-                //return RedirectToAction(nameof(Index), new { id = keyword.KeywordId });
+
+                var thisDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
+                if (thisDef != null)
+                {
+                    keyword.KeywordDefinitionName = thisDef.KeywordDefinitionName;
+                    _context.SaveChanges();
+                }
+
+                //Dispaly the Keyword Definition only for selection, hit Save and then display the whole model for editing
                 return RedirectToAction("Edit", "Keywords", new { id = keyword.KeywordId });
             }
             ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
@@ -85,6 +101,14 @@ namespace DataDictionary.Controllers
             {
                 return NotFound();
             }
+
+            KeywordDefinition thisDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
+            if (thisDef != null)
+            {
+                var descriptions = _dataDictionaryRepository.PopulateKeywordDescriptions(thisDef);
+                ViewBag.Descriptions = descriptions;
+            }
+
             ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
             return View(keyword);
         }
@@ -107,6 +131,13 @@ namespace DataDictionary.Controllers
                 {
                     _context.Update(keyword);
                     await _context.SaveChangesAsync();
+
+                    var thisDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
+                    if (thisDef != null)
+                    {
+                        keyword.KeywordDefinitionName = thisDef.KeywordDefinitionName;
+                        _context.SaveChanges();
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
