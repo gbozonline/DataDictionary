@@ -45,14 +45,15 @@ namespace DataDictionary.Controllers
                 return NotFound();
             }
 
-            KeywordDefinition thisDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
-            if (thisDef != null)
+            KeywordDefinition keywordDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
+            if (keywordDef != null)
             {
-                var descriptions = _dataDictionaryRepository.PopulateKeywordDescriptions(thisDef);
-                ViewBag.Descriptions = descriptions;
+                var keywordViewModel = new KeywordViewModel(keyword, keywordDef);
+                return View(keywordViewModel);
+            } else
+            {
+                return View(keyword);
             }
-
-            return View(keyword);
         }
 
         // GET: Keywords/Create
@@ -102,15 +103,17 @@ namespace DataDictionary.Controllers
                 return NotFound();
             }
 
-            KeywordDefinition thisDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
-            if (thisDef != null)
-            {
-                var descriptions = _dataDictionaryRepository.PopulateKeywordDescriptions(thisDef);
-                ViewBag.Descriptions = descriptions;
-            }
-
             ViewData["KeywordDefinitionId"] = new SelectList(_context.KeywordDefinitions, "KeywordDefinitionId", "KeywordDefinitionName", keyword.KeywordDefinitionId);
-            return View(keyword);
+
+            KeywordDefinition keywordDef = _dataDictionaryRepository.GetDefinitionById(keyword.KeywordDefinitionId);
+            if (keywordDef != null)
+            {
+                var keywordViewModel = new KeywordViewModel(keyword, keywordDef);
+                return View(keywordViewModel);
+            } else
+            {
+                return View(keyword);
+            }
         }
 
         // POST: Keywords/Edit/5

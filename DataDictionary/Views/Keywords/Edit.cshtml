@@ -1,4 +1,4 @@
-﻿@model DataDictionary.Models.Keyword
+﻿@model DataDictionary.Models.KeywordViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,138 +12,138 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="KeywordId" />
+            <input type="hidden" asp-for="@Model.Keyword.KeywordId" />
             <div class="form-group">
-                <label asp-for="KeywordDefinitionId" class="control-label"></label>
-                <select asp-for="KeywordDefinitionId" class="form-control" asp-items="ViewBag.KeywordDefinitionId">
+                <label asp-for="@Model.Keyword.KeywordDefinitionId" class="control-label"></label>
+                <select asp-for="@Model.Keyword.KeywordDefinitionId" class="form-control" asp-items="ViewBag.KeywordDefinitionId">
                     <option value="">-Select-</option>
                 </select>
-                <span asp-validation-for="KeywordDefinitionId" class="text-danger"></span>
+                <span asp-validation-for="@Model.Keyword.KeywordDefinitionId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field1" class="control-label">@ViewBag.Descriptions[0]</label>
-                <input asp-for="Field1" class="form-control" />
-                <span asp-validation-for="Field1" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field1" class="control-label">@Model.KeywordDefinition.Field1Description</label>
+                <input asp-for="@Model.Keyword.Field1" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field2" class="control-label">@ViewBag.Descriptions[1]</label>
-                <input asp-for="Field2" class="form-control" />
-                <span asp-validation-for="Field2" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field2" class="control-label">@Model.KeywordDefinition.Field2Description</label>
+                <input asp-for="@Model.Keyword.Field2" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field2" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field3" class="control-label">@ViewBag.Descriptions[2]</label>
-                <input asp-for="Field3" class="form-control" />
-                <span asp-validation-for="Field3" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field3" class="control-label">@Model.KeywordDefinition.Field3Description</label>
+                <input asp-for="@Model.Keyword.Field3" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field3" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field4" class="control-label">@ViewBag.Descriptions[3]</label>
-                <input asp-for="Field4" class="form-control" />
-                <span asp-validation-for="Field4" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field4" class="control-label">@Model.KeywordDefinition.Field4Description</label>
+                <input asp-for="@Model.Keyword.Field4" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field4" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field5" class="control-label">@ViewBag.Descriptions[4]</label>
-                <input asp-for="Field5" class="form-control" />
-                <span asp-validation-for="Field5" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field5" class="control-label">@Model.KeywordDefinition.Field5Description</label>
+                <input asp-for="@Model.Keyword.Field5" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field5" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field6" class="control-label">@ViewBag.Descriptions[5]</label>
-                <input asp-for="Field6" class="form-control" />
-                <span asp-validation-for="Field6" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field6" class="control-label">@Model.KeywordDefinition.Field6Description</label>
+                <input asp-for="@Model.Keyword.Field6" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field6" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field7" class="control-label">@ViewBag.Descriptions[6]</label>
-                <input asp-for="Field7" class="form-control" />
-                <span asp-validation-for="Field7" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field7" class="control-label">@Model.KeywordDefinition.Field7Description</label>
+                <input asp-for="@Model.Keyword.Field7" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field7" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field8" class="control-label">@ViewBag.Descriptions[7]</label>
-                <input asp-for="Field8" class="form-control" />
-                <span asp-validation-for="Field8" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field8" class="control-label">@Model.KeywordDefinition.Field8Description</label>
+                <input asp-for="@Model.Keyword.Field8" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field8" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field9" class="control-label">@ViewBag.Descriptions[8]</label>
-                <input asp-for="Field9" class="form-control" />
-                <span asp-validation-for="Field9" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field9" class="control-label">@Model.KeywordDefinition.Field9Description</label>
+                <input asp-for="@Model.Keyword.Field9" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field9" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field10" class="control-label">@ViewBag.Descriptions[9]</label>
-                <input asp-for="Field10" class="form-control" />
-                <span asp-validation-for="Field10" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field10" class="control-label">@Model.KeywordDefinition.Field10Description</label>
+                <input asp-for="@Model.Keyword.Field10" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field10" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field11" class="control-label">@ViewBag.Descriptions[10]</label>
-                <input asp-for="Field11" class="form-control" />
-                <span asp-validation-for="Field11" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field11" class="control-label">@Model.KeywordDefinition.Field11Description</label>
+                <input asp-for="@Model.Keyword.Field11" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field11" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field12" class="control-label">@ViewBag.Descriptions[11]</label>
-                <input asp-for="Field12" class="form-control" />
-                <span asp-validation-for="Field12" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field12" class="control-label">@Model.KeywordDefinition.Field12Description</label>
+                <input asp-for="@Model.Keyword.Field12" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field12" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field13" class="control-label">@ViewBag.Descriptions[12]</label>
-                <input asp-for="Field13" class="form-control" />
-                <span asp-validation-for="Field13" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field13" class="control-label">@Model.KeywordDefinition.Field13Description</label>
+                <input asp-for="@Model.Keyword.Field13" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field13" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field14" class="control-label">@ViewBag.Descriptions[13]</label>
-                <input asp-for="Field14" class="form-control" />
-                <span asp-validation-for="Field14" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field14" class="control-label">@Model.KeywordDefinition.Field14Description</label>
+                <input asp-for="@Model.Keyword.Field14" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field14" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field15" class="control-label">@ViewBag.Descriptions[14]</label>
-                <input asp-for="Field15" class="form-control" />
-                <span asp-validation-for="Field15" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field15" class="control-label">@Model.KeywordDefinition.Field15Description</label>
+                <input asp-for="@Model.Keyword.Field15" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field15" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field16" class="control-label">@ViewBag.Descriptions[15]</label>
-                <input asp-for="Field16" class="form-control" />
-                <span asp-validation-for="Field16" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field16" class="control-label">@Model.KeywordDefinition.Field16Description</label>
+                <input asp-for="@Model.Keyword.Field16" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field16" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field17" class="control-label">@ViewBag.Descriptions[16]</label>
-                <input asp-for="Field17" class="form-control" />
-                <span asp-validation-for="Field17" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field17" class="control-label">@Model.KeywordDefinition.Field17Description</label>
+                <input asp-for="@Model.Keyword.Field17" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field17" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field18" class="control-label">@ViewBag.Descriptions[17]</label>
-                <input asp-for="Field18" class="form-control" />
-                <span asp-validation-for="Field18" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field18" class="control-label">@Model.KeywordDefinition.Field18Description</label>
+                <input asp-for="@Model.Keyword.Field18" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field18" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field19" class="control-label">@ViewBag.Descriptions[18]</label>
-                <input asp-for="Field19" class="form-control" />
-                <span asp-validation-for="Field19" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field19" class="control-label">@Model.KeywordDefinition.Field19Description</label>
+                <input asp-for="@Model.Keyword.Field19" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field19" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field20" class="control-label">@ViewBag.Descriptions[19]</label>
-                <input asp-for="Field20" class="form-control" />
-                <span asp-validation-for="Field20" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field20" class="control-label">@Model.KeywordDefinition.Field20Description</label>
+                <input asp-for="@Model.Keyword.Field20" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field20" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field21" class="control-label">@ViewBag.Descriptions[20]</label>
-                <input asp-for="Field21" class="form-control" />
-                <span asp-validation-for="Field21" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field21" class="control-label">@Model.KeywordDefinition.Field21Description</label>
+                <input asp-for="@Model.Keyword.Field21" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field21" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field22" class="control-label">@ViewBag.Descriptions[21]</label>
-                <input asp-for="Field22" class="form-control" />
-                <span asp-validation-for="Field22" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field22" class="control-label">@Model.KeywordDefinition.Field22Description</label>
+                <input asp-for="@Model.Keyword.Field22" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field22" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field23" class="control-label">@ViewBag.Descriptions[22]</label>
-                <input asp-for="Field23" class="form-control" />
-                <span asp-validation-for="Field23" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field23" class="control-label">@Model.KeywordDefinition.Field23Description</label>
+                <input asp-for="@Model.Keyword.Field23" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field23" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field24" class="control-label">@ViewBag.Descriptions[23]</label>
-                <input asp-for="Field24" class="form-control" />
-                <span asp-validation-for="Field24" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field24" class="control-label">@Model.KeywordDefinition.Field24Description</label>
+                <input asp-for="@Model.Keyword.Field24" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field24" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Field25" class="control-label">@ViewBag.Descriptions[24]</label>
-                <input asp-for="Field25" class="form-control" />
-                <span asp-validation-for="Field25" class="text-danger"></span>
+                <label asp-for="@Model.Keyword.Field25" class="control-label">@Model.KeywordDefinition.Field25Description</label>
+                <input asp-for="@Model.Keyword.Field25" class="form-control" />
+                <span asp-validation-for="@Model.Keyword.Field25" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
