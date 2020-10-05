@@ -10,6 +10,7 @@ namespace DataDictionary.Repositories
     {
         Application GetApplicationById(int id);
         KeywordDefinition GetDefinitionById(int keywordDefinitionId);
+        IEnumerable<Keyword> GetKeywordsById(int keywordDefinitionId);
         List<string> PopulateKeywordDescriptions(KeywordDefinition theDef);
     }
 }

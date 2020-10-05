@@ -30,6 +30,12 @@ namespace DataDictionary.Repositories
             return definition;
         }
 
+        public IEnumerable<Keyword> GetKeywordsById(int id)
+        {
+            var keywordList = from c in _contextData.Keywords where c.KeywordDefinitionId == id select c;
+            return (IEnumerable<Keyword>)keywordList;
+        }
+
         public List<string> PopulateKeywordDescriptions(KeywordDefinition theDef)
         {
             List<string> DescriptionList = new List<string>();

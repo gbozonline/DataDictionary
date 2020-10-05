@@ -175,6 +175,9 @@
     </dl>
 </div>
 <div>
+    @await Component.InvokeAsync("EmbeddedKeywords", @Model.KeywordDefinitionId)
+</div>
+<div>
     <a asp-action="Edit" asp-route-id="@Model.KeywordDefinitionId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
