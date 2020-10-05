@@ -158,6 +158,10 @@
 </div>
 
 <div>
+    @await Component.InvokeAsync("EmbeddedKeywords", @Model.KeywordDefinitionId)
+</div>
+
+<div>
     <a asp-action="Index">Back to List</a>
 </div>
 

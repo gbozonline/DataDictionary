@@ -1,4 +1,6 @@
-﻿@foreach (var item in ViewBag.EmbeddedKeywords)
-{
-    @item.Field1
-}
+﻿<ul>
+    @foreach (var item in ViewBag.EmbeddedKeywords)
+    {
+        <li><a asp-action ="Details" asp-controller="Keywords" asp-route-id=@item.KeywordId>@item.Field1</a></li>
+    }
+</ul>
