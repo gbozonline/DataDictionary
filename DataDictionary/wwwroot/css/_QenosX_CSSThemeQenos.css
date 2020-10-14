@@ -1,0 +1,1110 @@
+﻿
+/*-------------------------------------------------------------------------------------------------*/
+/* CONTAINERS*/
+/*-------------------------------------------------------------------------------------------------*/
+
+body {
+    font-size: 12px;
+}
+
+.lotusFrame {
+    width: 100%;
+    min-width: 100%;
+}
+
+.formSectionContainer {
+    border: 1px solid #CACACA;
+    padding: 15px 20px 13px;
+    margin-bottom: 15px;
+}
+
+.formSectionContainerHeader {
+    background-color: #F3F3F4;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    padding: 5px 20px 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.formSectionContainerWorkInfo {
+    background-color: #FFFFFF;
+    border: 1px solid #CACACA;
+    padding: 15px 20px 13px;
+    margin-bottom: 15px;
+}
+
+.formSectionHeading {
+    color: #7C0152;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.formSectionHeadingNonTable {
+    color: #7C0152;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 20px;
+}
+
+.qenosFormTableHeader {
+    padding: 3px 0px 0px 10px;
+    margin-top: 10px;
+    min-height: 16px;
+    height: auto !important;
+    height: 16px;
+}
+
+.qenosFormTableHeaderWorkflowInfo {
+    background-color: #83D0F5;
+    padding: 0px 0px 0px 10px;
+    margin-top: 10px;
+    min-height: 0px;
+    height: auto !important;
+    height: 0px;
+}
+
+.qenosHeader {
+    margin-top: 15px;
+}
+
+.fixedNavigation {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.lotusMain, .view-dynamic.container-fluid {
+    margin-top: 100px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+/* QENOS FORM Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTable, .qenosFormTableContentEvaluation, .qenosHeaderTable, .qenosHeaderStatusTable, .qenosFormTableContent, .appTitleTable, .viewTableFilters, .viewTableFiltersOuter, .viewTableFiltersSearch, .qenosHeaderWorkInfo, .qenosFormTablePicker {
+    width: 100%;
+}
+
+.qenosFormTable {
+    line-height: 1.5;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+    .qenosFormTable tr {
+        /*background-color: #FFFFD0;*/
+    }
+
+    .qenosFormTable td {
+        border: 0px solid black;
+    }
+
+        .qenosFormTable td.colLabel {
+            width: 14%;
+        }
+
+        .qenosFormTable td.colMand {
+            width: 1%;
+        }
+
+        .qenosFormTable td.colField {
+            width: 20%;
+        }
+
+    .qenosFormTable tr.rowName {
+        line-height: 2em;
+    }
+
+.qenosFormTablePicker td.colField {
+    width: 90%;
+}
+
+.qenosFormTablePicker td.colPicker {
+    padding-left: 5px;
+}
+
+.textareaPicker.form-control {
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+}
+
+.panelTableFilters {
+    margin-bottom: 6px;
+    margin-top: -2px;
+}
+
+.panelViewSpacer {
+    padding-top: 3px;
+}
+
+.panelDatagrid {
+    padding-top: 3px;
+    height: 660px;
+}
+
+.panelDatagridSpacer {
+    padding-top: 25px;
+}
+
+.panelDatagridViewTitle {
+    margin-top: 8px;
+    padding: 5px;
+    background-color: #003F49;
+}
+
+.panelCourseRatingContainer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.panelCourseRating {
+    background: #E1E8F2;
+    padding: 3px;
+    border: solid 1px #069;
+    width: 100%;
+    margin: 0px;
+}
+
+.viewTableFiltersOuter td {
+    padding-top: 0px;
+}
+
+    .viewTableFiltersOuter td.tableFiltersLeft {
+        width: 80%;
+        text-align: left;
+    }
+
+    .viewTableFiltersOuter td.tableFiltersRight {
+        width: 20%;
+        text-align: right;
+    }
+
+.viewTableFilters td.labelFilter {
+    width: 5%;
+    padding: 0px;
+}
+
+.viewTableFiltersSearch td.searchQuery {
+    width: 80%;
+}
+
+.viewTableFiltersSearch td.searchButton {
+    width: 10%;
+    text-align: right;
+}
+
+.searchButton img {
+    cursor: hand;
+    cursor: pointer;
+}
+
+.labelFilter img {
+    cursor: hand;
+    cursor: pointer;
+}
+
+.labelGroupFilter {
+    font-weight: bold;
+    font-size: 11px;
+    color: #004041;
+}
+
+.inputSearchQuery {
+    width: 96%;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* QENOS HEADER Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosHeaderTable td.colFormDisplay {
+    width: 80%;
+}
+
+.qenosHeaderTable td.colLogo {
+    width: 20%;
+    text-align: right;
+}
+
+    .qenosHeaderTable td.colLogo img {
+        vertical-align: top;
+    }
+
+.qenosHeaderTable td.colLogo {
+    width: 20%;
+    text-align: right;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* QENOS HEADER STATUS Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosHeaderStatusTable td.colWaitingOn {
+    text-align: right;
+}
+
+.qenosHeaderStatusTable td.colStatus {
+    width: 50%;
+    text-align: right;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* QENOS FORM CONTENT Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTableContent tr {
+    background-color: #FFFFFF;
+}
+
+.qenosFormTableContent td {
+    border: 0px solid black;
+}
+
+    .qenosFormTableContent td.colLabel {
+        width: 9%;
+        color: #7C0152;
+        padding-left: 15px;
+    }
+
+    .qenosFormTableContent td.colMand {
+        width: 1%;
+    }
+
+    .qenosFormTableContent td.colField {
+        width: 20%;
+    }
+
+.qenosFormTableContent .qenosRowContentHeader {
+    background-color: #004041;
+}
+
+.qenosRowContentHeaderText {
+    /*color: #FFFFFF;
+    font-weight: bold;
+    padding-left: 15px;
+    */
+    color: #000000;
+    font-weight: bold;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+/* WORKFLOW INFO Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTableWorkInfo {
+    width: 50%;
+    border: 1px solid #CACACA;
+    color: #6C6F71;
+    font-size: 8pt;
+    margin-top: 10px;
+}
+
+    .qenosFormTableWorkInfo td {
+        padding: 10px;
+    }
+
+        .qenosFormTableWorkInfo td.innerBorder {
+            /*border: 1px solid #CACACA;*/
+        }
+
+        .qenosFormTableWorkInfo td.innerSpacer {
+            width: 2%;
+        }
+
+    .qenosFormTableWorkInfo .boldText {
+        font-weight: bold;
+        color: #0000CC;
+    }
+
+.qenosFormTableWorkInfoInner {
+    width: 100%;
+    border: 1px solid #CACACA;
+}
+
+    .qenosFormTableWorkInfoInner td {
+        width: 25%;
+    }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* DOCUMENT PROPERTIES Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTableDocProps {
+    width: 100%;
+    border: 0px solid #CACACA;
+}
+
+    .qenosFormTableDocProps td {
+        padding: 5px;
+    }
+
+        .qenosFormTableDocProps td.col1 {
+            width: 35%;
+        }
+
+        .qenosFormTableDocProps td.col2 {
+            width: 65%;
+        }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* QENOS WORK INFO HEADER Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosHeaderWorkInfo {
+    border-spacing: 0;
+}
+
+    .qenosHeaderWorkInfo td.workTitle {
+        width: 80%;
+    }
+
+    .qenosHeaderWorkInfo td.workClose {
+        width: 20%;
+        text-align: right;
+    }
+
+        .qenosHeaderWorkInfo td.workClose img {
+            vertical-align: top;
+        }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* USER INFORMATION Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTableUserInfo {
+    width: 100%;
+    border: 0px solid black;
+    color: #6C6F71;
+    font-size: 9pt;
+}
+
+    .qenosFormTableUserInfo td {
+        padding: 5px;
+    }
+
+    .qenosFormTableUserInfo td {
+    }
+
+        .qenosFormTableUserInfo td.innerBorder {
+            border: 1px solid #CACACA;
+        }
+
+        .qenosFormTableUserInfo td.innerSpacer {
+            width: 2%;
+        }
+
+    .qenosFormTableUserInfo .boldText {
+        font-weight: bold;
+    }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* EVALUATION Table*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosFormTableContentEvaluation tr {
+    background-color: #FFFFFF;
+}
+
+.qenosFormTableContentEvaluation td {
+    border: 0px solid black;
+}
+
+    .qenosFormTableContentEvaluation td.colLabel {
+        width: 26%;
+        color: #0000CC;
+        padding-left: 15px;
+    }
+
+    .qenosFormTableContentEvaluation td.colMand {
+        width: 1%;
+    }
+
+    .qenosFormTableContentEvaluation td.colField, .qenosFormTableContentEvaluation td.colFieldNav {
+        width: 73%;
+    }
+
+.qenosFormTableContentEvaluation .qenosRowContentHeader {
+    background-color: #004041;
+}
+
+.qenosFormTableContentEvaluation tr.rowNavigation {
+}
+
+.qenosFormTableContentEvaluation td.colFieldNav {
+    padding-top: 20px;
+    padding-left: 8px;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* HEADER*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.headerFormDisplay {
+    color: #63666A;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.headerDbTitle {
+    color: #63666A;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.headerDbEnv {
+    color: #888B8D;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.headerStatusWaitingOn {
+    color: #888B8D;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.headerStatusPriority {
+    color: #0000CC;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.headerStatusStatus {
+    color: #0099FF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.headerStatusCreatedText {
+    color: #63666A;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.headerStatusMiscText {
+    color: #0099FF;
+    font-weight: normal;
+    font-size: 11px;
+}
+
+.headerStatusCreated {
+    color: #63666A;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.headerStatusVersionText {
+    color: #C8102E;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.headerStatusVersion {
+    color: #C8102E;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.headerStatusRefAddit {
+    color: #0000CC;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* THEME*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.thmAppTitle {
+    padding: 0px 0px 0px 10px;
+    float: left;
+    font-size: 1.4em;
+    line-height: 2em;
+    letter-spacing: 0;
+    font-weight: normal;
+    color: rgb(255,255,255)
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* LOTUS*/
+/*-------------------------------------------------------------------------------------------------*/
+
+button.lotusBtn {
+    margin-right: 5px;
+}
+
+.lotusColLeft {
+    padding: 8px 5px 5px 5px;
+    width: 200px;
+}
+
+.lotusMenu {
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px 4px 4px 4px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+    .lotusMenu h3 {
+        padding-left: 0px;
+    }
+
+.lotusMenuSubsection li a {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.lotusMenu .lotusMenuSubsection li.lotusSelected a, .lotusMenu .lotusMenuSubsection li.lotusSelected a:visited, .lotusMenu .lotusMenuSubsection li.lotusSelected a:active {
+    font-weight: normal;
+    padding-left: 0px;
+    margin-left: 0px;
+    border-style: solid;
+    border-width: 0px;
+    text-decoration: none;
+}
+
+.lotusMenu li a {
+    color: #003F49;
+    font-size: 12px;
+}
+
+    .lotusMenu li a:hover {
+        background-color: #D8D9D1;
+        border-color: #D8D9D1;
+        text-decoration: none;
+        color: #327D3D;
+    }
+
+.lotusMenu li.lotusSelected a, .lotusMenu li.lotusSelected a:visited, .lotusMenu li.lotusSelected a:active {
+    background-color: #D8D9D1;
+    border-color: #D8D9D1;
+    padding-left: 0px;
+    margin-left: 0px;
+    color: #327D3D !important;
+    border-style: solid;
+    border-width: 0px;
+    text-decoration: none;
+}
+
+.lotusMenu li h3 a, span.leftMainCategory a {
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+.lotusContent {
+    padding: 8px 20px 20px 20px;
+}
+
+.lotusForm h2 .lotusMeta {
+    margin-top: 25px;
+}
+
+.lotusui span.pagerSize li a {
+    color: #FFFFFF;
+}
+
+.xspInputFieldEditBox {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.25em;
+    width: 90%;
+}
+
+.xspInputFieldTextArea {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.25em;
+    width: 90%;
+}
+
+.xspComboBox {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.8em;
+    width: 90%;
+}
+
+.xspComboBoxLast {
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.8em;
+    width: 60%;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #B3B3B3;
+    margin: 0 0.1em;
+}
+
+.xspComboBoxNonForm {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #B3B3B3;
+    font: 1.05em Arial,Helvetica,sans-serif;
+    height: 1.8em;
+    margin: 0 0.1em;
+    margin-left: 10px;
+}
+
+.xspDataTableViewPanel {
+    width: 100%;
+}
+
+.xspDataTableViewPanelHeaderStart, .xspDataTableViewPanelHeaderMiddle, .xspDataTableViewPanelHeaderEnd, .xspPagerContainer,
+.xspPagerRight, .xspPagerNav, .xspDataTableViewPanelFooterStart, .xspDataTableViewPanelFooterMiddle, .xspDataTableViewPanelFooterEnd {
+    background-color: #003F49;
+    /*background-color: #D8D9D1;*/
+    color: #FFFFFF;
+}
+
+.xspGroup span span a, .xspGroup span span a:visited, .xspGroup span span a:hover {
+    color: #FFFFFF;
+}
+
+.xspGroup span span.xspCurrentItem {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.xspPrevious a, .xspPrevious a:visited, .xspNext a, .xspNext a:visited, .xspPrevious a:hover, .xspNext a:hover {
+    color: #FFFFFF;
+}
+
+.xspInputFieldDatePickerIcon {
+    margin: 4px;
+}
+
+.dijitArrowButtonContainer {
+    padding: 5px;
+}
+
+.dijitInputContainer {
+    margin-left: 5px;
+    margin-top: 6px;
+}
+
+.form-control {
+    width: 90%;
+    color: #6C6F71;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+/* QENOS*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.qenosTitleBar {
+    background-color: #71B2CF;
+    border-bottom-color: #71B2CF;
+    background-image: url('_QenosImgV2TopBg');
+    background-repeat: no-repeat;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    clear: both;
+    height: 3em;
+    position: relative;
+    margin: 0 10px;
+    /* Do rounding (native in Firefox and Safari) */
+    -webkit-border-radius: 15px 15px 0px 0px;
+    -moz-border-radius: 15px 15px 0px 0px;
+}
+
+.lotusTitleBar {
+    background-color: #71B2CF;
+    border-bottom-color: #71B2CF;
+}
+
+.qenosLeftNav {
+    background-color: #D8D9D1;
+    padding-top: 5px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+/* APPLICATION LAYOUT*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.leftTopViewActions {
+    /*background-color: #71B2CF;*/
+    background-color: #003F49;
+    padding: 15px 0px 10px 3px;
+}
+
+.panelCCLeftViewActions {
+    padding: 3px 0px 3px 5px;
+}
+
+.panelCCCustomStdActions {
+    padding: 2px 0px 0px 15px;
+}
+
+.panelFormDebug {
+    display: none;
+}
+
+.descriptionFormElements {
+    font-size: 8pt;
+    color: red;
+}
+
+.panelFormContentHeading {
+    font: 0.95em Arial,Helvetica,sans-serif;
+}
+
+.panelDialogActions {
+    margin-top: 600px;
+}
+
+.panelNoAccess {
+    margin-top: 150px;
+}
+
+.panelLeftNavFooter {
+    margin-top: 30px;
+    background-color: #D8D9D1;
+}
+
+.xspMessage {
+    background-color: #FFFFFF;
+    border: 0px solid #FFCD04;
+    color: red;
+}
+
+.actionDialog, .errorDialog {
+    /*width: 250px;*/
+}
+
+.linkMessageDialog {
+    width: 500px;
+    color: #63666A;
+}
+
+.linkMessageLabel {
+    color: #0000CC;
+}
+
+.actionCreateDialog {
+    width: 200px;
+}
+
+.appTitleTable td.appTitleWelcome {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.appTitleTable td.appTitleLogo {
+    padding-left: 10px;
+    width: 74px;
+}
+
+.labelWelcome {
+    font-size: 8pt;
+    font-weight: normal;
+    color: #000000;
+}
+
+.labelNoAccess {
+    font-size: 12pt;
+    font-weight: bold;
+    color: red;
+}
+
+.labelSubmitHeader {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #004041;
+}
+
+.labelSubmit {
+    font-size: 10pt;
+    font-weight: normal;
+    color: black;
+}
+
+.labelNavigationPage {
+    font-size: 8pt;
+    font-weight: normal;
+    color: #FFFFFF;
+    margin: 10px;
+    0px;
+    0px;
+    10px;
+}
+
+.labelViewTitle {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.linkLogout {
+    font-size: 8pt;
+    font-weight: normal;
+    color: #000000;
+    padding-left: 30px;
+}
+
+.labelMsgAttendee {
+    color: red;
+}
+
+.labelDatagridViewTitle {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.qenosFormTableHeader .linkParent {
+    font-size: 8pt;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.qenosFormTableHeader a:hover, .qenosFormTableHeader a:focus, .qenosFormTableHeader a:active {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* GLOBAL*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.myAltRowClass {
+    color: red !important;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* BOOTSTRAP OVERRIDE*/
+/*-------------------------------------------------------------------------------------------------*/
+
+.menu-item a, .list-group a, li a {
+    text-decoration: none;
+}
+
+.applayout-column-left {
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+.navbar .btn, .navbar .btn-group {
+    margin: 0px;
+}
+
+.nav-tabs li a:focus, .nav-tabs li a:hover {
+    color: #63666A;
+}
+
+.nav-tabs li.active a {
+    color: #63666A;
+}
+
+.tableCCLeftViewActions td.buttonHolder, .buttonChild {
+    padding-left: 5px;
+}
+
+.btn-group > .btn-group:last-child > .btn:first-child {
+    border-radius: 4px;
+}
+
+.list-group {
+    margin-bottom: 10px;
+    line-height: 15px;
+    font-size: 12px;
+}
+
+.list-group-item.disabled.expandable {
+    /*background-color: yellow;*/
+}
+
+.list-group-item.disabled {
+    font-weight: bold;
+}
+
+.applayout-main {
+    margin-bottom: 5px;
+}
+
+.applayout-titlebar {
+    background-color: #FFFFFF;
+}
+
+.applayout-titlebar-inner {
+    margin-top: 5px;
+    padding-left: 0px;
+}
+
+.modal-body {
+    background-color: #F8F8F8;
+}
+
+.radio td {
+    padding: 3px;
+}
+
+.formActionInfoBox {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.formActionComments {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.panel-title {
+    font-size: 14px;
+}
+
+.blue {
+    color: #0000CC;
+}
+
+.panelFormContentHeading > .panel {
+    margin-bottom: 15px;
+}
+
+    .panelFormContentHeading > .panel .panel-heading {
+        padding: 10px 15px;
+    }
+
+.clearfix.table {
+    margin-bottom: 10px;
+}
+
+.glyphicon-chevron-right {
+    float: right;
+    margin-right: -6px;
+    margin-top: 2px;
+    opacity: 0.5;
+}
+
+
+body {
+    color: #000000;
+}
+
+.panel-primary {
+    border-color: #0099FF;
+}
+
+.panel-info {
+    border-color: #83D0F5;
+}
+
+.panel-success {
+    border-color: #888B8D;
+}
+
+.panel-danger {
+    border-color: #C4C5C6;
+}
+
+.panel-primary .panel-heading, .btn-primary {
+    background-color: #0099FF;
+    border-color: #0099FF;
+    color: #FFFFFF;
+}
+
+.panel-info .panel-heading, .btn-info {
+    background-color: #83D0F5;
+    border-color: #83D0F5;
+    color: #FFFFFF;
+}
+
+.panel-success .panel-heading, .btn-success {
+    background-color: #888B8D;
+    border-color: #888B8D;
+    color: #FFFFFF;
+}
+
+.panel-danger .panel-heading, .btn-danger {
+    background-color: #C4C5C6;
+    border-color: #C4C5C6;
+    color: #FFFFFF;
+}
+
+.modal-header {
+    background-color: #0099FF;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-success:hover, .btn-success:focus, .btn-success:active {
+    background-color: #0000CC;
+    border-color: #0000CC;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #0099FF;
+    border-color: #0099FF;
+    color: #FFFFFF;
+    z-index: 2;
+}
+
+a {
+    color: #0000CC;
+    text-decoration: underline;
+}
+
+    a:hover {
+        color: #83D0F5;
+        text-decoration: none;
+    }
+
+    a.linkParent {
+        color: #FFFFFF;
+    }
+
+.nopadright {
+    padding-right: 0px;
+}
+
+.nopadleft {
+    padding-left: 0px;
+}
+
+.full {
+    width: 100%;
+}
+
+.control-label {
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.control-label-horizontal {
+    padding-top: 0px;
+    padding-bottom: 5px;
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.imgmiddle {
+    padding-top: 100%;
+}
+
+@media (max-width:780px) {
+    .imgmiddle {
+        padding-top: 0px;
+    }
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.radio label {
+    margin-right: 10px;
+}
+
+.form-horizontal fieldset.radio {
+    padding-top: 0px;
+}
+
+.fieldReadOnly {
+    padding-top: 7px;
+}

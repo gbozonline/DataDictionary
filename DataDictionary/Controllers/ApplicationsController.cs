@@ -21,9 +21,57 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
-            return View(await _context.Applications.OrderBy(a => a.ApplicationName).ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["OwnerSortParm"] = sortOrder == "Owner" ? "owner_desc" : "Owner";
+            ViewData["FileSortParm"] = sortOrder == "Filename" ? "filename_desc" : "Filename";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var applications = from s in _context.Applications
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                applications = applications.Where(s => s.ApplicationName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    applications = applications.OrderByDescending(s => s.ApplicationName);
+                    break;
+                case "Owner":
+                    applications = applications.OrderBy(s => s.Owner);
+                    break;
+                case "owner_desc":
+                    applications = applications.OrderByDescending(s => s.Owner);
+                    break;
+                case "Filename":
+                    applications = applications.OrderBy(s => s.FileName);
+                    break;
+                case "filename_desc":
+                    applications = applications.OrderByDescending(s => s.FileName);
+                    break;
+                default:
+                    applications = applications.OrderBy(s => s.ApplicationName);
+                    break;
+            }
+
+            int pageSize = 3;
+
+            return View(await PaginatedList<Application>.CreateAsync(applications.AsNoTracking(), pageNumber ?? 1, pageSize));
+            //return View(await applications.AsNoTracking().ToListAsync());
+            //return View(await _context.Applications.OrderBy(a => a.ApplicationName).ToListAsync());
         }
 
         // GET: Applications/Details/5
@@ -35,6 +83,8 @@ namespace DataDictionary.Controllers
             }
 
             var application = await _context.Applications
+                .Include(s => s.KeywordDefinitions)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ApplicationId == id);
             if (application == null)
             {

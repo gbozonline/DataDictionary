@@ -19,7 +19,7 @@ namespace DataDictionary.ViewComponents
             _dataDictionaryRepository = dataDictionaryRepository;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int keywordDefinitionId)
+        public IViewComponentResult Invoke(int keywordDefinitionId)
         {
             ViewBag.EmbeddedKeywords = _dataDictionaryRepository.GetKeywordsById(keywordDefinitionId);
             return View("EmbeddedKeywords");
