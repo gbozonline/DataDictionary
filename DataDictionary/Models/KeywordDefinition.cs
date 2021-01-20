@@ -75,6 +75,8 @@ namespace DataDictionary.Models
         public string Field25Description { get; set; }
 
         public virtual ICollection<Keyword> Keywords { get; set; }
+
+        [ForeignKey("ApplicationId")]
         public virtual Application Application { get; set; }
 
 

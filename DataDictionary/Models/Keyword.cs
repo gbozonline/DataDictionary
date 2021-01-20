@@ -44,6 +44,7 @@ namespace DataDictionary.Models
         public string Field24 { get; set; }
         public string Field25 { get; set; }
 
+        [ForeignKey("KeywordDefinitionId")]
         public virtual KeywordDefinition KeywordDefinition { get; set; }
     }
 }

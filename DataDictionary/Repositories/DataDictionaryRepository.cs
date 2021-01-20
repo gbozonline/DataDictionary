@@ -36,6 +36,20 @@ namespace DataDictionary.Repositories
             return (IEnumerable<Keyword>)keywordList;
         }
 
+        public IEnumerable<Keyword> GetKeywordsByName(string keywordName)
+        {
+            var keywordList = from c in _contextData.Keywords where c.KeywordDefinitionName == keywordName select c;
+            return (IEnumerable<Keyword>)keywordList;
+        }
+
+        public List<string> GetKeywordsField1(IEnumerable<Keyword> keywordList)
+        {
+            List<string> FieldList = new List<string>();
+            keywordList.ToList().ForEach(x => { FieldList.Add(x.Field1); });
+
+            return FieldList;
+        }
+
         public List<string> PopulateKeywordDescriptions(KeywordDefinition theDef)
         {
             List<string> DescriptionList = new List<string>();
