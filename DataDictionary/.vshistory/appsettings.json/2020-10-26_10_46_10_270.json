@@ -8,6 +8,6 @@
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "DataDictionaryContext": "Server=MALDOT1\\SQLEXPRESS;Database=DataDictionaryDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "DataDictionaryContext": "Server=(localdb)\\mssqllocaldb;Database=DataDictionaryDb-1;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
 }
