@@ -20,15 +20,7 @@ namespace DataDictionary.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<KeywordDefinition>()
-                .HasOne(d => d.Application)
-                .WithMany(k => k.KeywordDefinitions)
-                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Keyword>()
-                .HasOne(d => d.KeywordDefinition)
-                .WithMany(k => k.Keywords)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

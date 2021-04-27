@@ -38,7 +38,6 @@ namespace DataDictionary
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("ADRoleOnly", policy => policy.RequireRole(Configuration["SecuritySettings:ADGroup"]));
-                options.AddPolicy("ADRoleOnly2", policy => policy.RequireRole(Configuration["SecuritySettings:ADGroup2"]));
             });
 
             services.AddMvc(config =>

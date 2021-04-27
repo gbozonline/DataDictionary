@@ -27,7 +27,7 @@ namespace DataDictionary.Data
 
             modelBuilder.Entity<Keyword>()
                 .HasOne(d => d.KeywordDefinition)
-                .WithMany(k => k.Keywords)
+                .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

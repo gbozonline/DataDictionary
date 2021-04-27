@@ -9,12 +9,9 @@ using DataDictionary.Data;
 using DataDictionary.Models;
 using DataDictionary.Repositories;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 namespace DataDictionary.Controllers
 {
-    [Authorize(Policy = "ADRoleOnly")]
-    [Authorize(Policy = "ADRoleOnly2")]
     public class ApplicationsController : Controller
     {
         private readonly DataDictionaryContext _context;
@@ -27,6 +24,8 @@ namespace DataDictionary.Controllers
         // GET: Applications
         public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
+            var result = await _userManager.CreateAsync(user, model.Password);
+
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["OwnerSortParm"] = sortOrder == "Owner" ? "owner_desc" : "Owner";
@@ -122,6 +121,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Edit/5
+        [Authorize(Policy = "AtLeast21")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

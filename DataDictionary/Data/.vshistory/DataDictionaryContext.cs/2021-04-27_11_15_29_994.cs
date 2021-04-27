@@ -22,12 +22,12 @@ namespace DataDictionary.Data
         {
             modelBuilder.Entity<KeywordDefinition>()
                 .HasOne(d => d.Application)
-                .WithMany(k => k.KeywordDefinitions)
+                .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Keyword>()
                 .HasOne(d => d.KeywordDefinition)
-                .WithMany(k => k.Keywords)
+                .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

@@ -12,6 +12,6 @@
   },
   "SecuritySettings": {
     "ADGroup": "QENOSAD\\MALDEV1 Administrators",
-    "ADGroup2": "QENOSAD\\MALDEV2 Administrators"
+    "ADGroup2": "QENOSAD\\MALDEV22 Administrators"
   }
 }

@@ -8,13 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using DataDictionary.Data;
 using DataDictionary.Models;
 using DataDictionary.Repositories;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 
 namespace DataDictionary.Controllers
 {
-    [Authorize(Policy = "ADRoleOnly")]
-    [Authorize(Policy = "ADRoleOnly2")]
     public class ApplicationsController : Controller
     {
         private readonly DataDictionaryContext _context;

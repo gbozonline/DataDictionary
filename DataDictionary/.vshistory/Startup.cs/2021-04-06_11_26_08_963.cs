@@ -33,12 +33,9 @@ namespace DataDictionary
             services.AddDbContext<DataDictionaryContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DataDictionaryContext")));
 
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
-
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("ADRoleOnly", policy => policy.RequireRole(Configuration["SecuritySettings:ADGroup"]));
-                options.AddPolicy("ADRoleOnly2", policy => policy.RequireRole(Configuration["SecuritySettings:ADGroup2"]));
             });
 
             services.AddMvc(config =>

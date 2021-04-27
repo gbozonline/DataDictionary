@@ -14,7 +14,7 @@ namespace DataDictionary.Controllers
     public class KeywordsController : Controller
     {
         private readonly DataDictionaryContext _context;
-        private readonly IDataDictionaryRepository _dataDictionaryRepository;
+        private IDataDictionaryRepository _dataDictionaryRepository;
 
         public KeywordsController(DataDictionaryContext context, IDataDictionaryRepository dataDictionaryRepository)
         {

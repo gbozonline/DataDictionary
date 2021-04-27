@@ -122,6 +122,7 @@ namespace DataDictionary.Controllers
         }
 
         // GET: Applications/Edit/5
+        [Authorize(Policy = "AtLeast21")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

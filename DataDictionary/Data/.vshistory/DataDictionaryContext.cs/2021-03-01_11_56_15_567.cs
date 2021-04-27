@@ -21,13 +21,13 @@ namespace DataDictionary.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<KeywordDefinition>()
-                .HasOne(d => d.Application)
-                .WithMany(k => k.KeywordDefinitions)
-                .OnDelete(DeleteBehavior.Restrict);
+               .HasOne(d => d.Application)
+               .WithMany()
+               .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Keyword>()
                 .HasOne(d => d.KeywordDefinition)
-                .WithMany(k => k.Keywords)
+                .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

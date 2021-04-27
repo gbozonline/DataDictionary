@@ -11,7 +11,6 @@
     "DataDictionaryContext": "Server=MALDOT1\\SQLEXPRESS;Database=DataDictionaryDb;Trusted_Connection=True;MultipleActiveResultSets=true"
   },
   "SecuritySettings": {
-    "ADGroup": "QENOSAD\\MALDEV1 Administrators",
-    "ADGroup2": "QENOSAD\\MALDEV2 Administrators"
+    "ADGroup": "YourDomain\\YourADGroup"
   }
 }

@@ -12,8 +12,6 @@ using DataDictionary.Data;
 using DataDictionary.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Server.IISIntegration;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace DataDictionary
 {
@@ -33,21 +31,10 @@ namespace DataDictionary
             services.AddDbContext<DataDictionaryContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DataDictionaryContext")));
 
-            services.AddAuthentication(IISDefaults.AuthenticationScheme);
-
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("ADRoleOnly", policy => policy.RequireRole(Configuration["SecuritySettings:ADGroup"]));
-                options.AddPolicy("ADRoleOnly2", policy => policy.RequireRole(Configuration["SecuritySettings:ADGroup2"]));
-            });
-
-            services.AddMvc(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-
-                config.Filters.Add(new AuthorizeFilter(policy));
+                options.AddPolicy("AtLeast21", policy =>
+                    policy.Requirements.Add(new MinimumAgeRequirement(21)));
             });
 
             services.AddControllersWithViews();
